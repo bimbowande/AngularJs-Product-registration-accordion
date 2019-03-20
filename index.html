@@ -1,0 +1,76 @@
+A<!doctype html>
+<html>
+
+<head>
+    <title>Generate Multiple Input Fields Dynamically</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+</head>
+
+<body ng-app="multipleInputs" class="users-container" ng-controller="multipleInputsCtrl">
+    <button ng-click="addUser()" class="add-user">Add User</button>
+
+
+
+    <article ng-repeat="user in users" class="mb-2 mt-2">
+        <div class="card" style="width: 300px;">
+            <article class="card-header info-color white-text text-center py-4" ng-click='toggle($index)'>
+                <article class="row">
+                    <span class="col-md-2 text-white">{{ $index + 1 }}</span>
+                    <a  class="col-md-2 offset-8" style="color: red; font-weight: bold; "
+                       ng-if="users.length > 1" ng-click="removeUser(user)">X</a>
+                </article>
+            </article>
+            <form class="border border-light p-3"ng-model ="user.open" ng-show="user.open">
+                <!-- first -->
+                <div class="md-form mt-3">
+                    <input id="materialSubscriptionFormPasswords" class="form-control mb-4" ng-model="user.colour"
+                        type="text" />
+                    <label for="materialSubscriptionFormPasswords">Vehicle Colour</label>
+                </div>
+                <!-- next -->
+                <div class="md-form mt-3">
+                    <input class="form-control mb-4" id="make" ng-model="user.make[$index+1]" type="text" />
+                    <label for="make">Make: Eg Toyota</label>
+                </div>
+                <!-- next -->
+                <div class="md-form mt-3">
+                    <input class="form-control mb-4" id="make" ng-model="user.model" type="text" />
+                    <label for="model">Model: Eg Camry</label>
+                </div>
+                <!-- next -->
+                <div class="md-form mt-3">
+                    <input class="form-control mb-4" id="date" ng-model="user.date" type="text" />
+                    <label for="date">Manufacturer Date</label>
+                </div>
+                <!-- next -->
+                <div class="md-form mt-3">
+                    <input class="form-control mb-4" id="mileage" ng-model="user.mileage" type="text" />
+                    <label for="mileage">Mileage</label>
+                </div>
+                <!-- next -->
+
+             
+            </form>
+        </div>
+    </article>
+    {{users}}
+    
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script src="lib/angular.min.js"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>

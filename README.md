@@ -1,1 +1,0 @@
-AngularJs-Product-registration-accordion
